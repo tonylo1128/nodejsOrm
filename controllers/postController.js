@@ -1,4 +1,6 @@
 const postRepos = require('../repositories/postRepositories');
+const categeoryRepos = require("../repositories/categoryRepositories");
+var tempA;
 
 module.exports = {
 
@@ -18,9 +20,21 @@ module.exports = {
     },
 
     createPost: (req, res)=>{
-        let inputTemp = req.body.reactGetInputValue
+        let inputTemp = req.body.reactGetInputValue;
+
+        categeoryRepos.findPostbyInput(inputTemp.input2)
+            .then(tempResult=>{
+                tempA =  tempResult;
+                // console.log("---------------------------------------------"+tempResult)
+                // tempA = parseInt(tempResult);
+            })
+   
+            
+            console.log("---------------------------------------------"+tempA)
+                
+
         postRepos
-        .createPost(inputTemp)
+        .createPost(inputTemp, tempA)
         .then( (result)=>{
             result:result
         })

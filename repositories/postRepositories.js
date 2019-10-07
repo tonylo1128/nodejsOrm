@@ -11,9 +11,6 @@ module.exports = {
   },
 
   createPost( inputTemp, temp ) {
-    
-    
-
     console.log("This the CategoryID " + temp)
     return Model.post
     .create(
@@ -23,11 +20,18 @@ module.exports = {
     , 
       { returning: true });
     
+  },
+
+  delePost(inputTemp){
+    console.log("We are in the repost now "+inputTemp)
+    return Model.post
+    .destroy({
+      where:{
+        id:inputTemp
+      }
+    })
   }
   // [ {content: inputTemp.content}, {categoryId: inputTemp.categoryId} ]
-
-
-  
 };
 
 

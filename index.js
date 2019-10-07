@@ -15,7 +15,9 @@ app.get('/getTopic',postCon.findPost);
 
 
 
-app.post('/postTopic',postCon.createPost)
+app.post('/postTopic',postCon.createPost);
+
+app.delete('/dele/:id', postCon.delePost)
 
 
 

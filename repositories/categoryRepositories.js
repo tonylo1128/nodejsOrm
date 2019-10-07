@@ -9,7 +9,7 @@ module.exports = {
         });
   },
 
-  // findPostbyInput( inputTemp ) {
+  // findPostbyName( inputTemp ) {
   //   return Model.Category
   //   .findAll({
   //     attributes:["id"],
@@ -18,7 +18,7 @@ module.exports = {
   //     { returning: true });
     
   // }
-  findPostbyInput( inputTemp ) {
+  findPostbyName( inputTemp ) {
     return Model.Category
     .findAll({
       attributes:["id"],

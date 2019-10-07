@@ -22,22 +22,24 @@ module.exports = {
     createPost: (req, res)=>{
         let inputTemp = req.body.reactGetInputValue;
 
-        categeoryRepos.findPostbyInput(inputTemp.input2)
+        categeoryRepos.findPostbyName(inputTemp.input2)
             .then(tempResult=>{
                 tempA =  tempResult;
-                // console.log("---------------------------------------------"+tempResult)
-                // tempA = parseInt(tempResult);
             })
-   
-            
             console.log("---------------------------------------------"+tempA)
-                
-
         postRepos
         .createPost(inputTemp, tempA)
         .then( (result)=>{
             result:result
         })
+    },
+
+    delePost: (req,res)=>{
+        let inputTemp = req.params.id;
+        console.log("Someone is CALLLLING ME and here is the value: "+inputTemp)
+        postRepos
+        .delePost(inputTemp)
+
     }
 
 

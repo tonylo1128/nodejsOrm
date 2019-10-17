@@ -1,5 +1,7 @@
 const postRepos = require('../repositories/postRepositories');
 const categeoryRepos = require("../repositories/categoryRepositories");
+
+
 var tempA;
 
 module.exports = {
@@ -19,14 +21,20 @@ module.exports = {
         } )
     },
 
+    // uploadFile: ,
+
     createPost: (req, res)=>{
         let inputTemp = req.body.reactGetInputValue;
-
+        let inputTemp2 = req.body.tempTest;
+        
+        console.log(req.file)
+        console.log(inputTemp2)
+        
         categeoryRepos.findPostbyName(inputTemp.input2)
             .then(tempResult=>{
                 tempA =  tempResult;
             })
-            console.log("---------------------------------------------"+tempA)
+            // console.log("---------------------------------------------"+tempA)
         postRepos
         .createPost(inputTemp, tempA)
         .then( (result)=>{

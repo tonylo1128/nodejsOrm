@@ -23,20 +23,39 @@ module.exports = {
 
     // uploadFile: ,
 
+    // createPost: (req, res)=>{
+    //     let inputTemp = req.body.reactGetInputValue;
+    //     let inputTemp2 = req.body.tempTest;
+        
+    //     const topic = req.body.topic;
+    //     const catID = req.body.catID;
+        
+    //     categeoryRepos.findPostbyName(inputTemp.input2)
+    //         .then(tempResult=>{
+    //             tempA =  tempResult;
+    //         })
+    //         // console.log("---------------------------------------------"+tempA)
+    //     postRepos
+    //     .createPost(inputTemp, tempA)
+    //     .then( (result)=>{
+    //         result:result
+    //     })
+    // },
+
     createPost: (req, res)=>{
-        let inputTemp = req.body.reactGetInputValue;
-        let inputTemp2 = req.body.tempTest;
+        const topic = req.body.topic;
+        const catID = req.body.catID;
+        const file = req.file;
+
+        console.log(file)
         
-        console.log(req.file)
-        console.log(inputTemp2)
-        
-        categeoryRepos.findPostbyName(inputTemp.input2)
+        categeoryRepos.findPostbyName(catID)
             .then(tempResult=>{
                 tempA =  tempResult;
             })
-            // console.log("---------------------------------------------"+tempA)
+
         postRepos
-        .createPost(inputTemp, tempA)
+        .createPost(topic, tempA)
         .then( (result)=>{
             result:result
         })

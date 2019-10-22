@@ -6,7 +6,9 @@ module.exports = {
     return Model.post
     .findAll()
     .then(post => {
+      console.log(post)
       return post;
+      
     });
   },
 
@@ -15,7 +17,7 @@ module.exports = {
     return Model.post
     .create(
       
-      {content: inputTemp.input1,
+      {content: inputTemp ,
       categoryId: temp}
     , 
       { returning: true });
